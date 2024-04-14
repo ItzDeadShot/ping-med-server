@@ -1,4 +1,4 @@
-name: Yellow Laravel Deployment
+name: PingMed Laravel Deployment
 
 on:
   push:
