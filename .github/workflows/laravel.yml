@@ -15,4 +15,4 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         host: ${{ secrets.SSH_HOST }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: 'cd /var/www/ping-med-server && ./server_deploy.sh'
+        script: 'cd /var/www/ping-med-server && sh ./server_deploy.sh'
