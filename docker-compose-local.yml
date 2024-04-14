@@ -1,7 +1,7 @@
 #############################################################
 ###########            Yellow Digital             ###########
 ###########    Docker Compose for Local Server    ###########
-###########           Laravel Projects            ########### 
+###########           Laravel Projects            ###########
 ###########          Includes Database            ###########
 #############################################################
 
@@ -13,7 +13,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        image: digitalocean.com/php
+        image: php:8.1-fpm-alpine3.18
         container_name: ${DOCKER_APP_NAME}-app
         restart: unless-stopped
         tty: true
@@ -23,14 +23,14 @@ services:
             - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
         networks:
             - app-network
-    
+
     # Nginx Service
     webserver:
         image: nginx:alpine
         container_name: ${DOCKER_APP_NAME}-webserver
         restart: unless-stopped
         tty: true
-        ports: 
+        ports:
             - "80:80"
             - "443:443"
         volumes:
@@ -54,7 +54,7 @@ services:
             - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
         networks:
             - app-network
-    
+
 # Networks
 networks:
     app-network:
