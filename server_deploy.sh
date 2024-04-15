@@ -14,12 +14,6 @@ echo "Deploying application ..."
     # Install dependencies based on lock file
     docker exec ${APP_NAME} /usr/local/bin/composer install
 
-    # Installing any npm dependencies
-    docker exec ${APP_NAME} npm install
-
-    # Compiling assets
-    docker exec ${APP_NAME} npm run production
-
     # Migrate database
     docker exec ${APP_NAME} php artisan migrate --force
 # Exit maintenance mode
