@@ -45,10 +45,9 @@ COPY . /var/www
 RUN cd /var/www
 
 RUN chown -R www:www .
-RUN chown -R www:www .
 RUN find . -type f -exec chmod 664 {} \;
 RUN find . -type d -exec chmod 775 {} \;
-RUN chgrp -R www-data storage bootstrap/cache
+RUN chgrp -R www storage bootstrap/cache
 RUN chmod -R ug+rwx storage bootstrap/cache
 
 # Change current user to www
