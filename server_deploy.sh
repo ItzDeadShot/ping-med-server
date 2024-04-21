@@ -14,18 +14,6 @@ echo "Deploying application ..."
     # Install dependencies based on lock file
     docker exec ${APP_NAME} /usr/local/bin/composer install
 
-    # Clear cache
-    docker exec ${APP_NAME} php artisan cache:clear
-
-    # Clear config cache
-    docker exec ${APP_NAME} php artisan config:cache
-
-    # Clear route cache
-    docker exec ${APP_NAME} php artisan route:cache
-
-    # Clear view cache
-    docker exec ${APP_NAME} php artisan view:clear
-
     # Migrate database
     docker exec ${APP_NAME} php artisan migrate --force
 # Exit maintenance mode
